@@ -1,0 +1,20 @@
+name: Create staging BuildJet Cache
+on: push
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create BuildJet Cache
+        uses: buildjet/cache@v3
+        with:
+          path: |
+            ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        env:
+          BUILDJET_CACHE_URL: https://cache-api-staging.buildjet.com/
+      - name: Install Node Dependencies
+        run: npm ci
+

@@ -1,0 +1,20 @@
+name: Delete BuildJet Cache
+on:
+  workflow_dispatch:
+    inputs:
+      cache_key:
+        description: 'BuildJet Cache Key to Delete'
+        required: true
+        type: string
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: ./ # Uses an action in the root directory
+        with:
+          cache_key: ${{ inputs.cache_key }}
+        env:
+          BUILDJET_CACHE_URL: https://cache-api-staging.buildjet.com/
