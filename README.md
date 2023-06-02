@@ -23,14 +23,13 @@ on:
         description: 'BuildJet Cache Key to Delete'
         required: true
         type: string
-
 jobs:
-  log-the-inputs:
+  delete-buildjet-cache:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: @buildjet/delete-cache@v1
+      - uses: buildjet/cache-delete@v1
         with:
           cache_key: ${{ inputs.cache_key }}
 ```
