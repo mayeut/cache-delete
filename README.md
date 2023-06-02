@@ -4,9 +4,9 @@
 
 ---
 
-This is an action to delete a BuildJet cache entry.
-Learn more about the BuildJet
-Cache [here](https://buildjet.com/for-github-actions/docs/guides/migrating-to-buildjet-cache).
+This is an action to manually delete a BuildJet cache entry. Note that BuildJet automatically removes the oldest cache entry to make room for new ones. However, manual deletion can help better manage your cache, especially when handling outdated or irrelevant data.
+
+Learn more about the BuildJet Cache [here](https://buildjet.com/for-github-actions/docs/guides/migrating-to-buildjet-cache).
 
 ### Usage
 
