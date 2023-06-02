@@ -25,7 +25,7 @@ on:
         type: string
 jobs:
   manually-delete-buildjet-cache:
-    runs-on: ubuntu-latest
+    runs-on: buildjet-2vcpu-ubuntu-2204 # Works on ubuntu-latest and any self-hosted runner 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
