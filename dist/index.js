@@ -47,6 +47,7 @@ function run() {
             const cacheKey = core.getInput("cache_key");
             core.info(`Will delete ${cacheKey} from the BuildJet Cache`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
             yield cache.deleteCache([cacheKey]);
+            core.info(`Successfully deleted ${cacheKey} from the BuildJet Cache`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
         }
         catch (error) {
             if (error instanceof Error)
