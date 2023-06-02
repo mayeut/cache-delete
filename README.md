@@ -54,7 +54,7 @@ Cache restored successfully
 Cache restored from key: Linux-npm-73339479b843f24de506811a29b7519e82adab1f40d83fecff88668fa0dc47ff
 ```  
 
-Simply copy the cache key from the logs and paste it into the input field when running the `Delete BuildJet Cache`
+Simply copy the cache key(`Linux-npm-73339479b843f24de506811a29b7519e82adab1f40d83fecff88668fa0dc47ff`) from the logs and paste it into the input field when running the `Delete BuildJet Cache`
 workflow.
 
 
