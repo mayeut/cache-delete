@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
+  "name": "buildjet-cache-delete",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "A GitHub Actions action to delete a BuildJet cache",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -14,12 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/buildjet/cache-delete.git"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "buildjet",
+    "cache",
+    "delete"
   ],
   "author": "",
   "license": "MIT",

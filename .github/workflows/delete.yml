@@ -8,7 +8,8 @@ on:
         type: string
 
 jobs:
-  log-the-inputs:
+  delete-buildjet-cache:
+    name: Deleting BuildJet Cache entry
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,5 +17,3 @@ jobs:
       - uses: ./ # Uses an action in the root directory
         with:
           cache_key: ${{ inputs.cache_key }}
-        env:
-          BUILDJET_CACHE_URL: https://cache-api-staging.buildjet.com/
