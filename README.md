@@ -15,7 +15,7 @@ to your
 repository with the following content:
 
 ```yaml
-name: Delete BuildJet Cache
+name: Manually Delete BuildJet Cache
 on:
   workflow_dispatch:
     inputs:
@@ -24,7 +24,7 @@ on:
         required: true
         type: string
 jobs:
-  delete-buildjet-cache:
+  manually-delete-buildjet-cache:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
