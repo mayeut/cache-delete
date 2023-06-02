@@ -6,6 +6,7 @@ async function run(): Promise<void> {
     const cacheKey: string = core.getInput("cache_key");
     core.info(`Will delete ${cacheKey} from the BuildJet Cache`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
     await cache.deleteCache([cacheKey]);
+    core.info(`Successfully deleted ${cacheKey} from the BuildJet Cache`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
   }
