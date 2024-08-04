@@ -1,0 +1,41 @@
+name: Test Action
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-action:
+    name: Test Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create cache
+        uses: buildjet/cache/save@v4
+        with:
+          path: src/*
+          key: test-action-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Check key found
+        uses: buildjet/cache/restore@v4
+        with:
+          path: src/*
+          key: test-action-${{ github.run_id }}-${{ github.run_attempt }}
+          fail-on-cache-miss: true
+          lookup-only: true
+      - name: Delete cache
+        uses: ./ # Uses an action in the root directory
+        with:
+          cache_key: test-action-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Check key not found (1/2)
+        uses: buildjet/cache/restore@v4
+        id: check
+        with:
+          path: src/*
+          key: test-action-${{ github.run_id }}-${{ github.run_attempt }}
+          fail-on-cache-miss: false
+          lookup-only: true
+      - name: Check key not found (2/2)
+        run: |
+          if [ "${{ steps.check.outputs.cache-hit }}" == "true" ]; then
+            exit 1
+          fi
