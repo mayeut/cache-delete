@@ -1,5 +1,7 @@
 name: Create staging BuildJet Cache
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
   test-buildjet-cache:
@@ -7,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Create BuildJet Cache
-        uses: buildjet/cache@v3
+        uses: buildjet/cache@v4
         with:
           path: |
             ~/.npm
